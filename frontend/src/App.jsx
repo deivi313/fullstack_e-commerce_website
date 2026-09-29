@@ -3,12 +3,14 @@ import { Routes, Route } from 'react-router-dom'
 import { About, Cart, Collection, Contact, Home, Login, Orders, PlaceOrder, Product } from './pages/index'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import SearchBar from './components/SearchBar'
 
 function App() {
   return (
     <div className='px-4 sm:px-[5vm] md:px-[7vw] lg:px-[9vw]'>
 
       <Navbar />
+      <SearchBar />
 
       <Routes>
 
