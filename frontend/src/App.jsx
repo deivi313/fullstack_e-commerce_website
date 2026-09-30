@@ -4,11 +4,13 @@ import { About, Cart, Collection, Contact, Home, Login, Orders, PlaceOrder, Prod
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SearchBar from './components/SearchBar'
+import { ToastContainer, toast } from 'react-toastify';
+
 
 function App() {
   return (
     <div className='px-4 sm:px-[5vm] md:px-[7vw] lg:px-[9vw]'>
-
+      <ToastContainer />
       <Navbar />
       <SearchBar />
 
@@ -23,7 +25,9 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/place-order' element={<PlaceOrder />} />
         <Route path='/orders' element={<Orders />} />
+
       </Routes>
+
       <Footer />
     </div>
   )
