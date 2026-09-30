@@ -40,7 +40,7 @@ const Product = () => {
           <div className='flex flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full '>
             {
               productData.image.map((item, index) => (
-                <img onClick={() => setImage(item)} src={item} key={index} alt="image" className='w-[24%] sm:w-full sm:mb-3 flex-hrink-0 cursor-pointer' />
+                <img onClick={() => setImage(item)} src={item} key={index} alt="image" className='w-[24%] sm:w-full sm:mb-3 shrink-0 cursor-pointer' />
               ))
             }
           </div>
@@ -54,11 +54,11 @@ const Product = () => {
           <h1 className='font-medium mt-2 text-2xl'>{productData.name}</h1>
           <div className='flex items-center gap-1 mt-2'>
 
-            <img src={assets.star_icon} alt="star icon" className="w-3 5" />
-            <img src={assets.star_icon} alt="star icon" className="w-3 5" />
-            <img src={assets.star_icon} alt="star icon" className="w-3 5" />
-            <img src={assets.star_icon} alt="star icon" className="w-3 5" />
-            <img src={assets.star_dull_icon} alt="star icon" className="w-3 5" />
+            <img src={assets.star_icon} alt="star icon" className="w-3.5" />
+            <img src={assets.star_icon} alt="star icon" className="w-3.5" />
+            <img src={assets.star_icon} alt="star icon" className="w-3.5" />
+            <img src={assets.star_icon} alt="star icon" className="w-3.5" />
+            <img src={assets.star_dull_icon} alt="star icon" className="w-3.5" />
             <p className='pl-2'>(122)</p>
           </div>
           <p className='mt-5 text-3xl font-medium'>{currency}{productData.price}</p>
@@ -77,7 +77,7 @@ const Product = () => {
           <hr className='mt-8 sm:w-4/5 text-gray-400' />
           <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
             <p>100% Original Product.</p>
-            <p>Cash on delivery is availbale on this product.</p>
+            <p>Cash on delivery is available on this product.</p>
             <p>Easy return and exchange policy within 7 days.</p>
           </div>
         </div>

@@ -46,36 +46,25 @@ const Collection = () => {
       productsCopy = productsCopy.filter(item => subCategory.includes(item.subCategory))
     }
 
-    setFilterProducts(productsCopy)
-  }
-
-  const sortProduct = () => {
-
-    let filterProductsCopy = filterProducts.slice()
-
     switch (sortType) {
       case 'low-high':
-        setFilterProducts(filterProductsCopy.sort((a, b) => (a.price - b.price)))
+        productsCopy.sort((a, b) => a.price - b.price)
         break;
 
       case 'high-low':
-        setFilterProducts(filterProductsCopy.sort((a, b) => (b.price - a.price)))
+        productsCopy.sort((a, b) => b.price - a.price)
         break;
 
       default:
-        applyFilter();
         break;
     }
+
+    setFilterProducts(productsCopy)
   }
 
   useEffect(() => {
     applyFilter()
-  }, [category, subCategory, search, showSearch])
-
-
-  useEffect(() => {
-    sortProduct()
-  }, [sortType])
+  }, [category, subCategory, search, showSearch, sortType])
 
 
   return (
@@ -125,7 +114,7 @@ const Collection = () => {
           <Title text1={'ALL '} text2={'COLLECTIONS'} />
           {/* sorting products */}
           <select onChange={(e) => setSortType(e.target.value)} className='border-2 border-gray-300 text-sm px-2'>
-            <option value="relevent">Sort by: Relevant</option>
+            <option value="relevant">Sort by: Relevant</option>
             <option value="low-high">Sort by: Low to high</option>
             <option value="high-low">Sort by: High to low</option>
           </select>
