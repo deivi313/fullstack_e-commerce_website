@@ -18,7 +18,7 @@ const Contact = () => {
           <p className='font-semibold text-xl text-gray-600'>Our Store</p>
           <p className='text-gray-500'>Rruga Ali Demi <br /> Tirane, Albania</p>
           <p className='text-gray-500'>Tel: +355 691234567 <br /> Email: contact@forever.com </p>
-          <p className='font-semibold text-xl text-gray-600'>Carrers at forever</p>
+          <p className='font-semibold text-xl text-gray-600'>Careers at forever</p>
           <p className='text-gray-500'>Learn more about our team and job openings.</p>
           <button className='border border-black px-8 py-4 text-sm hover:bg-black hover:text-white transition-all duration-500'>Explore jobs</button>
         </div>

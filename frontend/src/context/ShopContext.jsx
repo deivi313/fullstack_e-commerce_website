@@ -11,8 +11,15 @@ const ShopContextProvider = (props) => {
   const delivery_fee = 10
   const [search, setSearch] = useState("")
   const [showSearch, setShowSearch] = useState(false)
-  const [cartItems, setCartItems] = useState({})
+  const [cartItems, setCartItems] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('cartItems')) || {} }
+    catch { return {} }
+  })
   const navigate = useNavigate()
+
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems))
+  }, [cartItems])
 
   const addToCart = async (itemId, size) => {
 

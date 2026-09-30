@@ -34,7 +34,7 @@ const About = () => {
         </div>
 
         <div className='border px-10 lg:px-8 md:px-6 py-8 sm:py-20 flex flex-col gap-5'>
-          <b>Convience</b>
+          <b>Convenience</b>
           <p className='text-gray-600'>With our user-friendly interface and hassle-free ordering process, shopping has never been easier.</p>
         </div>
 
