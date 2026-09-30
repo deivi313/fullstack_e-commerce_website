@@ -47,9 +47,11 @@ a.active hr {
   }
   .order-left {
     max-width: 600px;
+    padding-right: 30px;
   }
   .order-right {
     min-width: 520px;
+    padding-left: 30px;
   }
 }
 

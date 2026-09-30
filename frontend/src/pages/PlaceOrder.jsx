@@ -33,7 +33,7 @@ const PlaceOrder = () => {
           <input className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="number" placeholder='Zipcode' />
           <input className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='Country' />
         </div>
-        <input className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="number" placeholder='Phone' />
+        <input className='no-spinner border border-gray-300 rounded py-1.5 px-3.5 w-full' type="number" placeholder='Phone' />
 
       </div>
 

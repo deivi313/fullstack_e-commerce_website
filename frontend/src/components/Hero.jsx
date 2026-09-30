@@ -1,5 +1,6 @@
 import React from 'react'
 import { assets } from '../assets/frontend_assets/assets'
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
   return (
@@ -17,7 +18,7 @@ const Hero = () => {
           <h1 className='text-3xl sm:py-3 lg:text:5xl leading-relaxed prata-regular'>Latest Arrivals</h1>
 
           <div className='flex items-center gap-2'>
-            <p className='font-semibold text-sm md:text-base'>SHOP NOW</p>
+            <Link to='/collection' className='font-semibold text-sm md:text-base'>SHOP NOW</Link>
             <p className='w-8 md:w-11 h-0.5 bg-[#414141]'></p>
           </div>
 
