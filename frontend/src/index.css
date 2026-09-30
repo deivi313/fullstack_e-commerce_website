@@ -38,3 +38,60 @@ a.active hr {
     color: white;
   }
 }
+
+/* PlaceOrder page: bigger layout and text on large screens */
+@media (min-width: 1440px) {
+  .order-page {
+    --order-text: 1.125rem;
+    --order-title: 1.75rem;
+  }
+  .order-left {
+    max-width: 600px;
+  }
+  .order-right {
+    min-width: 520px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .order-page {
+    --order-text: 1.25rem;
+    --order-title: 2rem;
+  }
+  .order-left {
+    max-width: 760px;
+  }
+  .order-right {
+    min-width: 680px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .order-page {
+    --order-text: 1.5rem;
+    --order-title: 2.5rem;
+  }
+  .order-left {
+    max-width: 960px;
+  }
+  .order-right {
+    min-width: 860px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .order-page input,
+  .order-page button,
+  .order-page .text-sm {
+    font-size: var(--order-text);
+  }
+
+  .order-page .text-xl,
+  .order-page .text-2xl {
+    font-size: var(--order-title);
+  }
+
+  .order-page img {
+    height: calc(var(--order-text) * 1.5);
+  }
+}
