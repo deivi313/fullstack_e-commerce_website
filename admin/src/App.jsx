@@ -25,7 +25,7 @@ const App = () => {
       {token === ""
         ? <Login setToken={setToken} />
         : <>
-          <Navbar />
+          <Navbar setToken={setToken} />
           <hr />
 
           <div className='flex w-full'>
@@ -35,9 +35,9 @@ const App = () => {
 
               <Routes>
 
-                <Route path="/add" element={<Add />} />
-                <Route path="/list" element={<List />} />
-                <Route path="/orders" element={<Orders />} />
+                <Route path="/add" element={<Add token={token} />} />
+                <Route path="/list" element={<List token={token} />} />
+                <Route path="/orders" element={<Orders token={token} />} />
 
               </Routes>
 

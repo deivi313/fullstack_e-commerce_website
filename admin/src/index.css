@@ -6,6 +6,12 @@
   font-family: Outfit;
 }
 
+select,input,textarea{
+  border:1px solid #c2c2c2;
+  outline-color: oklch(70.4% 0.04 256.788);
+  border-radius: 4px;
+}
+
 .active{
   background-color: oklch(86.9% 0.022 252.894);
   border-color: oklch(70.4% 0.04 256.788);
