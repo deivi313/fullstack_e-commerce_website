@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { About, Cart, Collection, Contact, Home, Login, Orders, PlaceOrder, Product } from './pages/index'
+import { About, Cart, Collection, Contact, Home, Login, Orders, PlaceOrder, Product, Verify } from './pages/index'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SearchBar from './components/SearchBar'
@@ -25,6 +25,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/place-order' element={<PlaceOrder />} />
         <Route path='/orders' element={<Orders />} />
+        <Route path='/verify' element={<Verify />} />
 
       </Routes>
 

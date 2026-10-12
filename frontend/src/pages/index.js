@@ -7,6 +7,7 @@ import Login from './Login'
 import Orders from './Orders'
 import PlaceOrder from './PlaceOrder'
 import Product from './Product'
+import Verify from './Verify'
 
 export {
   About,
@@ -17,5 +18,6 @@ export {
   Login,
   Orders,
   PlaceOrder,
-  Product
+  Product,
+  Verify
 }
