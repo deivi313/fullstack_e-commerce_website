@@ -88,7 +88,7 @@ const ShopContextProvider = (props) => {
 
     if (token) {
       try {
-        await axios.post(backendUrl + "/api/cart/update", { itemId, size, quantity }, { header: { token } })
+        await axios.post(backendUrl + "/api/cart/update", { itemId, size, quantity }, { headers: { token } })
       } catch (error) {
         console.log(error);
         toast.error(error.message)
@@ -100,7 +100,7 @@ const ShopContextProvider = (props) => {
   const getCartAmount = () => {
     let totalAmount = 0
     for (const items in cartItems) {
-      let itemInfo = products.find((product) => product._id === items)
+      let itemInfo = products.find((product) => product.id === items)
       for (const item in cartItems[items]) {
         try {
           if (cartItems[items][item] > 0) {

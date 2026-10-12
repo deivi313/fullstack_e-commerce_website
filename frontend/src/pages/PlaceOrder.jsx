@@ -4,10 +4,11 @@ import CartTotal from '../components/CartTotal'
 import { assets } from '../assets/frontend_assets/assets'
 import { ShopContext } from '../context/ShopContext'
 import { toast } from 'react-toastify'
+import axios from 'axios'
 
 const PlaceOrder = () => {
 
-  const [method, setMethod] = useState('cod')
+  const [method, setMethod] = useState('COD')
   const { navigate, backendUrl, token, cartItems, setCartItems, getCartAmount, delivery_fee, products } = useContext(ShopContext)
   const [formData, setFormData] = useState({
     firstName: '',
@@ -36,7 +37,7 @@ const PlaceOrder = () => {
       for (const items in cartItems) {
         for (const item in cartItems[items]) {
           if (cartItems[items][item] > 0) {
-            const itemInfo = structuredClone(products.find(product => product._id === items))
+            const itemInfo = structuredClone(products.find(product => product.id === items))
             if (itemInfo) {
               itemInfo.size = item
               itemInfo.quantity = cartItems[items][item]
@@ -109,7 +110,7 @@ const PlaceOrder = () => {
             value={formData.lastName}
             className='border border-gray-300 rounded py-1.5 px-3.5 w-full'
             type="text"
-            laceholder='Last name'
+            placeholder='Last name'
             required />
         </div>
         <input

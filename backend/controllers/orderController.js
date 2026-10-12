@@ -36,7 +36,6 @@ const placeOrder = async (req, res) => {
 
 // Placing orders using Stripe method
 const placeOrderStripe = async (req, res) => {
-
   try {
 
     const { userId, items, amount, address } = req.body;
@@ -51,8 +50,7 @@ const placeOrderStripe = async (req, res) => {
       payment: false,
     };
 
-    await orderModel.create(orderData);
-    await userModel.update({ cartData: {} }, { where: { id: userId } });
+    const newOrder = await orderModel.create(orderData);
 
     const line_items = items.map((item) => ({
       price_data: {
@@ -77,8 +75,8 @@ const placeOrderStripe = async (req, res) => {
     })
 
     const session = await stripe.checkout.sessions.create({
-      success_url: `${origin}/verify?success=true&orderId=${newOrder._id}`,
-      cancel_url: `${origin}/verify?success=false&orderId=${newOrder._id}`,
+      success_url: `${origin}/verify?success=true&orderId=${newOrder.id}`,
+      cancel_url: `${origin}/verify?success=false&orderId=${newOrder.id}`,
       line_items,
       mode: 'payment',
     })
@@ -98,11 +96,11 @@ const verifyStripe = async (req, res) => {
   try {
 
     if (success === "true") {
-      await orderModel.update(orderId, { payment: true })
-      await userModel.update(userId, { cartData: {} });
+      await orderModel.update({ payment: true }, { where: { id: orderId } })
+      await userModel.update({ cartData: {} }, { where: { id: userId } });
       res.json({ success: true })
     } else {
-      await orderModel.destroy(orderId)
+      await orderModel.destroy({ where: { id: orderId } })
       res.json({ success: false })
     }
 

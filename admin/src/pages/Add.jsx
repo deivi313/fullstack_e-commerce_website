@@ -20,7 +20,7 @@ const Add = ({ token }) => {
   const [sizes, setSizes] = useState([])
 
   const onSubmitHandler = async (e) => {
-    e.prevent.default()
+    e.preventDefault()
 
     try {
 
@@ -39,9 +39,9 @@ const Add = ({ token }) => {
       image3 && formData.append("image3", image3)
       image4 && formData.append("image4", image4)
 
-      const response = axios.post(backendUrl + "/api/product/add", formData, { headers: { token } })
+      const response = await axios.post(backendUrl + "/api/product/add", formData, { headers: { token } })
 
-      if ((await response).data.success) {
+      if (response.data.success) {
         toast.success(response.data.message)
         setName('')
         setDescription('')
@@ -51,7 +51,7 @@ const Add = ({ token }) => {
         setImage4(false)
         setPrice('')
       } else {
-        toast.error((await response).data.message)
+        toast.error(response.data.message)
       }
 
     } catch (error) {
@@ -94,7 +94,7 @@ const Add = ({ token }) => {
       <div className='w-full'>
         <p className='mb-2'>Product Name</p>
         <input className='w-full max-w-125 px-3 py-2' type="text"
-          placeholder='Type Here' r
+          placeholder='Type Here'
           onChange={(e) => setName(e.target.value)}
           value={name}
           required
@@ -158,15 +158,15 @@ const Add = ({ token }) => {
             <p className={` ${sizes.includes("M") ? "bg-gray-200" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>M</p>
           </div>
 
-          <div onClick={() => setSizes(prev => prev.includes("L") ? prev.filter(item => item != "L") : [...prev], "L")}>
+          <div onClick={() => setSizes(prev => prev.includes("L") ? prev.filter(item => item != "L") : [...prev, "L"])}>
             <p className={` ${sizes.includes("L") ? "bg-gray-200" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>L</p>
           </div>
 
-          <div onClick={() => setSizes(prev => prev.includes("XL") ? prev.filter(item => item != "XL") : [...prev], "XL")}>
+          <div onClick={() => setSizes(prev => prev.includes("XL") ? prev.filter(item => item != "XL") : [...prev, "XL"])}>
             <p className={` ${sizes.includes("XL") ? "bg-gray-200" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>XL</p>
           </div>
 
-          <div onClick={() => setSizes(prev => prev.includes("XXL") ? prev.filter(item => item != "XXL") : [...prev], "XXL")}>
+          <div onClick={() => setSizes(prev => prev.includes("XXL") ? prev.filter(item => item != "XXL") : [...prev, "XXL"])}>
             <p className={` ${sizes.includes("XXL") ? "bg-gray-200" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>XXL</p>
           </div>
 

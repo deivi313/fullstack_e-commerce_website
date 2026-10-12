@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { backendUrl, currency } from '../App'
 import { toast } from 'react-toastify'
 
-const List = (token) => {
+const List = ({ token }) => {
 
   const [list, setList] = useState([])
 
@@ -70,7 +70,7 @@ const List = (token) => {
               <p>{item.name}</p>
               <p>{item.category}</p>
               <p>{currency}{item.price}</p>
-              <p onClick={() => removeProduct(item._id)} className='text-right md:text-center cursor-pointer text-lg'>X</p>
+              <p onClick={() => removeProduct(item.id)} className='text-right md:text-center cursor-pointer text-lg'>X</p>
             </div>
           })
         }

@@ -4,6 +4,7 @@ import Title from '../components/Title'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
+import axios from 'axios'
 
 const Orders = () => {
 
@@ -17,7 +18,7 @@ const Orders = () => {
         return null
       }
 
-      const response = await axios.post(backendUrl + '/api/order/userorders', {}, { header: { token } })
+      const response = await axios.post(backendUrl + '/api/order/userorders', {}, { headers: { token } })
 
       if (response.data.success) {
         let allOrdersItem = []
@@ -64,7 +65,7 @@ const Orders = () => {
                     <p >Quantity: {item.quantity}</p>
                     <p>Size: {item.size}</p>
                   </div>
-                  <p className='mt-1'>Date: <span className='text-gray-400'>{new Date(item.createdAt).toDateString}</span></p>
+                  <p className='mt-1'>Date: <span className='text-gray-400'>{new Date(item.createdAt).toDateString()}</span></p>
                   <p className='mt-1'>Payment: <span className='text-gray-400'>{item.paymentMethod}</span></p>
                 </div>
               </div>

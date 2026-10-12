@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { currency, backendUrl } from '../App'
-import toast from 'react-toastify'
+import { toast } from 'react-toastify'
 import { assets } from '../assets/assets'
 
 const Orders = ({ token }) => {
@@ -32,7 +32,7 @@ const Orders = ({ token }) => {
 
   const statusHandler = async (event, orderId) => {
     try {
-      const response = await axios.post(backendUrl + "/api/orders/status", { orderId, status: event.target.value }, { headers: { token } })
+      const response = await axios.post(backendUrl + "/api/order/status", { orderId, status: event.target.value }, { headers: { token } })
 
       if (response.data.success) {
         await fetchAllOrders()
@@ -84,7 +84,7 @@ const Orders = ({ token }) => {
               </div>
               <p className='text-sm sm:text-[15px] font-medium'>{currency}{order.amount}</p>
 
-              <select onChange={(event) => statusHandler(event, order._id)} value={order.status} className='p-2 font-semibold'>
+              <select onChange={(event) => statusHandler(event, order.id)} value={order.status} className='p-2 font-semibold'>
                 <option value="Order Placed">Order Placed</option>
                 <option value="Packing">Packing</option>
                 <option value="Shipped">Shipped</option>
