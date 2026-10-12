@@ -151,23 +151,23 @@ const Add = ({ token }) => {
         <div className='flex gap-3'>
 
           <div onClick={() => setSizes(prev => prev.includes("S") ? prev.filter(item => item != "S") : [...prev, "S"])}>
-            <p className={` ${sizes.includes("S") ? "bg-gray-200" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>S</p>
+            <p className={` ${sizes.includes("S") ? "bg-gray-400" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>S</p>
           </div>
 
           <div onClick={() => setSizes(prev => prev.includes("M") ? prev.filter(item => item != "M") : [...prev, "M"])}>
-            <p className={` ${sizes.includes("M") ? "bg-gray-200" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>M</p>
+            <p className={` ${sizes.includes("M") ? "bg-gray-400" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>M</p>
           </div>
 
           <div onClick={() => setSizes(prev => prev.includes("L") ? prev.filter(item => item != "L") : [...prev, "L"])}>
-            <p className={` ${sizes.includes("L") ? "bg-gray-200" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>L</p>
+            <p className={` ${sizes.includes("L") ? "bg-gray-400" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>L</p>
           </div>
 
           <div onClick={() => setSizes(prev => prev.includes("XL") ? prev.filter(item => item != "XL") : [...prev, "XL"])}>
-            <p className={` ${sizes.includes("XL") ? "bg-gray-200" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>XL</p>
+            <p className={` ${sizes.includes("XL") ? "bg-gray-400" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>XL</p>
           </div>
 
           <div onClick={() => setSizes(prev => prev.includes("XXL") ? prev.filter(item => item != "XXL") : [...prev, "XXL"])}>
-            <p className={` ${sizes.includes("XXL") ? "bg-gray-200" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>XXL</p>
+            <p className={` ${sizes.includes("XXL") ? "bg-gray-400" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>XXL</p>
           </div>
 
         </div>
@@ -182,7 +182,7 @@ const Add = ({ token }) => {
       </div>
 
       <button type='submit'
-        className='w-28 py-3 mt-4 text-white bg-black' >
+        className='w-28 py-3 mt-4 text-white bg-black cursor-pointer' >
         ADD
       </button>
 
