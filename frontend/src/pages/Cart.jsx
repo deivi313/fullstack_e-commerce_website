@@ -54,7 +54,7 @@ const Cart = () => {
             {
               cartData.map((item) => {
 
-                const productData = products.find((product) => product.id === item.id)
+                const productData = products.find((product) => String(product.id) === item.id)
 
                 return (
                   <div key={`${item.id}-${item.size}`} className='py-4 border-b text-gray-700 grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4' >
