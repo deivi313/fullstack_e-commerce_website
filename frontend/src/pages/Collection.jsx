@@ -4,6 +4,8 @@ import { assets } from '../assets/frontend_assets/assets';
 import Title from '../components/Title'
 import ProductItem from '../components/ProductItem'
 
+const normalize = (text) => text.toLowerCase().replace(/[^a-z0-9\s]/g, '')
+
 const Collection = () => {
 
   const { products, search, showSearch } = useContext(ShopContext);
@@ -35,7 +37,11 @@ const Collection = () => {
     let productsCopy = products.slice();
 
     if (showSearch && search) {
-      productsCopy = productsCopy.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
+      const words = normalize(search).split(/\s+/).filter(Boolean)
+      productsCopy = productsCopy.filter(item => {
+        const name = normalize(item.name)
+        return words.every(word => name.includes(word))
+      })
     }
 
     if (category.length > 0) {

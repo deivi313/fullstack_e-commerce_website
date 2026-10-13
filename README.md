@@ -277,19 +277,6 @@ Every table also has Sequelize's `createdAt` and `updatedAt` timestamps, which t
 
 ---
 
-## Roadmap
-
-- [ ] Razorpay as an additional payment option (UI and dependency are in place, the backend handler is pending)
-- [ ] Confirm Stripe payments server-side with webhooks
-- [ ] Edit products from the admin dashboard
-- [ ] Order cancellation
-- [ ] Pagination and server-side search for large catalogues
-- [ ] JWT expiry, rate limiting and stricter input validation
-- [ ] Automated tests (API and UI) and a CI pipeline
-- [ ] Docker setup and cloud deployment
-
----
-
 ## Author
 
 **Deivi Boja**
