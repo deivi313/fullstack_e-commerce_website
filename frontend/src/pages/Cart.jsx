@@ -3,6 +3,7 @@ import { ShopContext } from '../context/ShopContext'
 import Title from '../components/Title'
 import { assets } from '../assets/frontend_assets/assets'
 import CartTotal from '../components/CartTotal'
+import BackButton from '../components/BackButton'
 
 const Cart = () => {
 
@@ -31,9 +32,10 @@ const Cart = () => {
   }, [cartItems, products])
 
   return (
-    <div className='pt-14'>
+    <div className='pt-6'>
 
       <div className='text-2xl mb-3 border-b'>
+        <BackButton label='Continue shopping' />
         <Title text1={'YOUR '} text2={'CART'} />
       </div>
 
@@ -43,7 +45,7 @@ const Cart = () => {
           <p className='text-lg'>Your cart is empty</p>
           <button
             onClick={() => navigate('/collection')}
-            className='bg-black text-white text-sm px-8 py-3'>
+            className='bg-black text-white text-sm px-8 py-3 cursor-pointer'>
             GO TO COLLECTION
           </button>
         </div>
@@ -100,7 +102,7 @@ const Cart = () => {
             <div className='w-full sm:w-112.5'>
               <CartTotal />
               <div className='w-full text-end'>
-                <button onClick={() => navigate('/place-order')} className='bg-black text-white text-sm my-8 px-8 py-3'>PROCEED TO CHECKOUT</button>
+                <button onClick={() => navigate('/place-order')} className='bg-black text-white text-sm my-8 px-8 py-3 cursor-pointer'>PROCEED TO CHECKOUT</button>
               </div>
             </div>
           </div>
