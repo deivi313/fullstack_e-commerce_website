@@ -28,6 +28,10 @@ const userModel = sequelize.define(
       type: DataTypes.JSON,
       defaultValue: {},
     },
+    address: {
+      type: DataTypes.JSON,
+      allowNull: true,
+    },
   },
   {
     tableName: "users",

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import Title from '../components/Title'
 import CartTotal from '../components/CartTotal'
 import { assets } from '../assets/frontend_assets/assets'
@@ -85,6 +85,24 @@ const PlaceOrder = () => {
     }
 
   }
+
+  // fill the form with the details saved in the user's profile
+  useEffect(() => {
+    if (!token) return
+    const loadSavedDetails = async () => {
+      try {
+        const response = await axios.post(backendUrl + '/api/user/profile', {}, { headers: { token } })
+        if (response.data.success) {
+          const { user } = response.data
+          setFormData(data => ({ ...data, ...user.address, email: user.email }))
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    loadSavedDetails()
+  }, [token])
+
 
   return (
     <form onSubmit={onSubmitHandler} className='order-page flex flex-col sm:flex-row justify-between gap-4 pt-5 sm:pt-14 min-h-[80vh] border-t'>

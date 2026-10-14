@@ -103,4 +103,71 @@ const adminLogin = async (req, res) => {
   }
 };
 
-export { loginUser, registerUser, adminLogin };
+// get the logged-in user's profile
+const getProfile = async (req, res) => {
+  try {
+    const { userId } = req.body;
+
+    const user = await userModel.findByPk(userId, {
+      attributes: ["name", "email", "address"],
+    });
+
+    if (!user) {
+      return res.json({ success: false, message: "User not found" });
+    }
+
+    res.json({
+      success: true,
+      user: { name: user.name, email: user.email, address: user.address || {} },
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+// update the logged-in user's name and delivery details
+const addressFields = [
+  "firstName",
+  "lastName",
+  "street",
+  "city",
+  "state",
+  "zipcode",
+  "country",
+  "phone",
+];
+
+const updateProfile = async (req, res) => {
+  try {
+    const { userId, name, address } = req.body;
+
+    if (typeof name !== "string" || !name.trim()) {
+      return res.json({ success: false, message: "Name is required" });
+    }
+
+    // keep only the known fields, as trimmed strings
+    const cleanAddress = {};
+    for (const field of addressFields) {
+      const value = address?.[field];
+      cleanAddress[field] =
+        typeof value === "string" || typeof value === "number"
+          ? String(value).trim().slice(0, 100)
+          : "";
+    }
+
+    await userModel.update(
+      { name: name.trim(), address: cleanAddress },
+      { where: { id: userId } },
+    );
+
+    res.json({ success: true, message: "Profile updated" });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+
+
+export { loginUser, registerUser, adminLogin, getProfile, updateProfile };

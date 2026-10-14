@@ -8,6 +8,7 @@ import Orders from './Orders'
 import PlaceOrder from './PlaceOrder'
 import Product from './Product'
 import Verify from './Verify'
+import Profile from './Profile'
 
 export {
   About,
@@ -19,5 +20,6 @@ export {
   Orders,
   PlaceOrder,
   Product,
-  Verify
+  Verify,
+  Profile,
 }
