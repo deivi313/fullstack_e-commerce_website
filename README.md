@@ -185,48 +185,6 @@ npm install
 npm run dev
 ```
 
-The dashboard runs at `http://localhost:5174`. Log in with the `ADMIN_EMAIL` and `ADMIN_PASSWORD` you set in the backend `.env`.
-
----
-
-## Environment Variables
-
-### `backend/.env`
-
-```env
-PORT=4000
-
-# MySQL
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_mysql_password
-DB_NAME=forever_shop
-
-# Auth
-JWT_SECRET=a_long_random_string
-ADMIN_EMAIL=admin@example.com
-ADMIN_PASSWORD=your_admin_password
-
-# Cloudinary
-CLOUDINARY_NAME=your_cloud_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_SECRET_KEY=your_api_secret
-
-# Stripe (use a test key)
-STRIPE_SECRET_KEY=sk_test_...
-```
-
-### `frontend/.env` and `admin/.env`
-
-```env
-VITE_BACKEND_URL=http://localhost:4000
-```
-
-> Vite reads `.env` files only at startup, so restart the dev server after changing them.
-> To try the Stripe flow in test mode, pay with the card number `4242 4242 4242 4242`, any future expiry date and any CVC.
-
----
-
 ## API Reference
 
 All routes are prefixed with `/api`. Protected routes expect the JWT in a `token` request header.
@@ -281,6 +239,4 @@ Every table also has Sequelize's `createdAt` and `updatedAt` timestamps, which t
 
 **Deivi Boja**
 
-- GitHub: [@deivi313](https://github.com/deivi313)
-- LinkedIn: [your-linkedin-profile](https://www.linkedin.com/in/your-linkedin-profile)
-- Email: your.email@example.com
+- Email: deiviboja3@gmail.com
